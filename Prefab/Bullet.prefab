@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8577154434943036809}
   - component: {fileID: 1195217962051286042}
   - component: {fileID: 6873022489167958410}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,9 +73,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 615957639
-  m_SortingLayer: 4
-  m_SortingOrder: 0
+  m_SortingLayerID: 145986173
+  m_SortingLayer: 3
+  m_SortingOrder: 10
   m_Sprite: {fileID: -1371782237, guid: de3e4c4c71cc847499f8774fc463b0fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -102,7 +102,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -143,7 +143,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.002038017, y: 0.0020380393}
@@ -161,5 +161,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a47f35fa26b5824fa3338eb2e853b79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 5
   explosionPrefab: {fileID: 5090595168907499722, guid: 92c238abd24e5244dbc0b12a76dbb185, type: 3}

@@ -13,11 +13,12 @@ public class Explosion : MonoBehaviour
 
    
     void Update()
-    {
+    {   
+        //获取动画的播放进度
         info = animator.GetCurrentAnimatorStateInfo(0);
         if (info.normalizedTime >= 1)
         {
             Destroy(gameObject);
-        }
+        }//爆炸完毕后消除爆炸特效
     }
 }
