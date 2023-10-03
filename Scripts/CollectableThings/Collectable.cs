@@ -4,30 +4,29 @@ using UnityEngine;
 //掉落物的拾取脚本
 public class Collectable : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
         
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         
     }
     //碰撞检测相关
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        PlayerController pc = other.GetComponent<PlayerController>();
-        if (pc != null)
-        {
-            if (pc.MyCurrentHealth < pc.MyMaxHealth)
-            {
-                pc.ChangeHealth(1);
-                Destroy(this.gameObject);
-            }
-        }
+    // void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     PlayerController pc = other.GetComponent<PlayerController>();
+    //     if (pc != null)
+    //     {
+    //         if (pc.MyCurrentHealth < pc.MyMaxHealth)
+    //         {
+    //             pc.ChangeHealth(1);
+    //             Destroy(this.gameObject);
+    //         }
+    //     }
         //恢复生命，即红心
+        
         // if (other.CompareTag("Key"))
         // {
         //     if (pc != null)
@@ -39,5 +38,5 @@ public class Collectable : MonoBehaviour
         //         }
         //     }
         // }//获得前往下一关的资格
-    }
+    //}
 }

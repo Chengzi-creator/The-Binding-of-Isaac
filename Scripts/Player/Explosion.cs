@@ -18,7 +18,8 @@ public class Explosion : MonoBehaviour
         info = animator.GetCurrentAnimatorStateInfo(0);
         if (info.normalizedTime >= 1)
         {
-            Destroy(gameObject);
+            ObjectPool.Instance.PushObject(gameObject);
+            //Destroy(gameObject);
         }//爆炸完毕后消除爆炸特效
     }
 }

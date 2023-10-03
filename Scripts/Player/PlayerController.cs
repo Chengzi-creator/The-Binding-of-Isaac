@@ -2,36 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 //控制角色的移动，属性等
 public class PlayerController : MonoBehaviour
-{
+{	
     public PlayerInputControls inputControl;//调用InputSystem；
     public float speed = 5f;//移动速度
     public Vector2 inputDirection;//方向
     public Rigidbody2D rb; //刚体组件
-    private int maxHealth = 5;//最大生命值
-    private int currentHealth;//当前生命值
-    public int qualify;//是否能进入下一关
     
-    public int MyMaxHealth
-    {
-        get
-        {
-            return maxHealth;
-        }
-    }//可以从其他脚本中获取这个属性,如果该变量不是public的话
-    public int MyCurrentHealth
-    {
-        get
-        {
-            return currentHealth;
-        }
-    }//可以从其他脚本中获取这个属性
-
-    private float invincibleTime = 1f;//无敌时间1s
-    private float invincibleTimer;//无敌计时器
-    private bool isInvincible;//是否处于无敌状态
+    // private float maxHealth = 3f;//最大生命值
+    // private float currentHealth = 3f;//当前生命值
+    //后面统一实现吧
+    
+    public int qualify;//是否能进入下一关
+    public GameObject Hearts;
+	//==================================================
+    // public float MyMaxHealth
+    // {
+    //     get
+    //     {
+    //         return maxHealth;
+    //     }
+    // }//可以从其他脚本中获取这个属性,如果该变量不是public的话
+    // public float MyCurrentHealth
+    // {
+    //     get
+    //     {
+    //         return currentHealth;
+    //     }
+    // }//可以从其他脚本中获取这个属性
+	//快进到用一个脚本涵盖所有有生命值的！！！！==========================
+    // private float invincibleTime = 1f;//无敌时间1s
+    // private float invincibleTimer;//无敌计时器
+    // private bool isInvincible;//是否处于无敌状态
     //以上为变量=================================================
     private void Awake()
     {   
@@ -53,13 +58,13 @@ public class PlayerController : MonoBehaviour
     }
     void Start()
     {
-        currentHealth = 3;
-        invincibleTimer = 0;
+        //currentHealth = 3;
+        //invincibleTimer = 0;
     }
 
     void Update()
     {
-        invincible();
+       //invincible();
     }
 
     void FixedUpdate()
@@ -98,40 +103,130 @@ public class PlayerController : MonoBehaviour
         // 将本地缩放设置为 faceDirx 和 faceDiry 的值
         transform.localScale = new Vector3(faceDirx, 1, faceDiry);
     }
-    //改变玩家的血量====================================================
-    public void ChangeHealth(int amount)
-    {
-        Debug.Log(currentHealth + "/" + maxHealth);
-        //将玩家的血量约束在0和最大之间
-        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        Debug.Log(currentHealth + "/" + maxHealth);
-        //看看函数是否成功
-        
-        //如果玩家受到伤害
-        if (amount < 0)
-        {
-            if (isInvincible == true)
-            {
-                return;
-            }
 
-            isInvincible = true;
-            invincibleTimer = invincibleTime;
-        }
-    }
+    //改变玩家的血量====================================================
+    // public void ChangeHealth(float amount)
+    // {
+    //     //Debug.Log(currentHealth + "/" + maxHealth);
+    //     //将玩家的血量约束在0和最大之间
+    //     currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+    //     //Debug.Log(currentHealth + "/" + maxHealth);
+    //     //看看函数是否成功
+    //     
+    //     //如果玩家受到伤害
+    //     if (amount < 0)
+    //     {
+    //         if (isInvincible == true)
+    //         {
+    //             return;
+    //         }
+    //
+    //         isInvincible = true;
+    //         invincibleTimer = invincibleTime;
+    //     }
+    // }
+    //================================================================
     public void Qualification(int amount)
     {
         //将玩家的血量约束在0和最大之间
         qualify = Mathf.Clamp(qualify + amount, 0, 5);
     }
     //判断玩家是否无敌===================================================
-    public void invincible()
-    {
-        if (isInvincible)
-        {
-            invincibleTimer -= Time.deltaTime;
-            if (invincibleTimer < 0)
-                isInvincible = false;//倒计时结束以后，解除无敌状态
-        }
-    }
+    // public void invincible()
+    // {
+    //     if (isInvincible)
+    //     {
+    //         invincibleTimer -= Time.deltaTime;
+    //         if (invincibleTimer < 0)
+    //             isInvincible = false;//倒计时结束以后，解除无敌状态
+    //     }
+    // }
+	//血量显示
+	// private void Heart()
+	// {
+	// 	if(Health == 3f)
+	// 	{
+	// 		Hearts.transform.Find("Heart2").Find("HF").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart2").Find("HM").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart2").Find("HN").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart1").Find("HF").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart1").Find("HM").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart1").Find("HN").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart0").Find("HF").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart0").Find("HM").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart0").Find("HN").gameObject.SetActive(true);
+	// 	}
+	// 	if(currentHealth == 2.5f)
+	// 	{
+	// 		Hearts.transform.Find("Heart2").Find("HF").gameObject.SetActive(false);
+	// 		Hearts.transform.Find("Heart2").Find("HM").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart2").Find("HN").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart1").Find("HF").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart1").Find("HM").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart1").Find("HN").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart0").Find("HF").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart0").Find("HM").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart0").Find("HN").gameObject.SetActive(true);
+	// 	}
+	// 	if(currentHealth == 2f)
+	// 	{
+	// 		Hearts.transform.Find("Heart2").Find("HF").gameObject.SetActive(false);
+	// 		Hearts.transform.Find("Heart2").Find("HM").gameObject.SetActive(false);
+	// 		Hearts.transform.Find("Heart2").Find("HN").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart1").Find("HF").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart1").Find("HM").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart1").Find("HN").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart0").Find("HF").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart0").Find("HM").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart0").Find("HN").gameObject.SetActive(true);
+	// 	}
+	// 	if(currentHealth == 1.5f)
+	// 	{
+	// 		Hearts.transform.Find("Heart2").Find("HF").gameObject.SetActive(false);
+	// 		Hearts.transform.Find("Heart2").Find("HM").gameObject.SetActive(false);
+	// 		Hearts.transform.Find("Heart2").Find("HN").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart1").Find("HF").gameObject.SetActive(false);
+	// 		Hearts.transform.Find("Heart1").Find("HM").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart1").Find("HN").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart0").Find("HF").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart0").Find("HM").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart0").Find("HN").gameObject.SetActive(true);
+	// 	}
+	// 	if(currentHealth == 1f)
+	// 	{
+	// 		Hearts.transform.Find("Heart2").Find("HF").gameObject.SetActive(false);
+	// 		Hearts.transform.Find("Heart2").Find("HM").gameObject.SetActive(false);
+	// 		Hearts.transform.Find("Heart2").Find("HN").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart1").Find("HF").gameObject.SetActive(false);
+	// 		Hearts.transform.Find("Heart1").Find("HM").gameObject.SetActive(false);
+	// 		Hearts.transform.Find("Heart1").Find("HN").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart0").Find("HF").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart0").Find("HM").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart0").Find("HN").gameObject.SetActive(true);
+	// 	}
+	// 	if(currentHealth == 0.5f)
+	// 	{
+	// 		Hearts.transform.Find("Heart2").Find("HF").gameObject.SetActive(false);
+	// 		Hearts.transform.Find("Heart2").Find("HM").gameObject.SetActive(false);
+	// 		Hearts.transform.Find("Heart2").Find("HN").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart1").Find("HF").gameObject.SetActive(false);
+	// 		Hearts.transform.Find("Heart1").Find("HM").gameObject.SetActive(false);
+	// 		Hearts.transform.Find("Heart1").Find("HN").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart0").Find("HF").gameObject.SetActive(false);
+	// 		Hearts.transform.Find("Heart0").Find("HM").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart0").Find("HN").gameObject.SetActive(true);
+	// 	}
+	// 	if(currentHealth == 0f)
+	// 	{
+	// 		Hearts.transform.Find("Heart2").Find("HF").gameObject.SetActive(false);
+	// 		Hearts.transform.Find("Heart2").Find("HM").gameObject.SetActive(false);
+	// 		Hearts.transform.Find("Heart2").Find("HN").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart1").Find("HF").gameObject.SetActive(false);
+	// 		Hearts.transform.Find("Heart1").Find("HM").gameObject.SetActive(false);
+	// 		Hearts.transform.Find("Heart1").Find("HN").gameObject.SetActive(true);
+	// 		Hearts.transform.Find("Heart0").Find("HF").gameObject.SetActive(false);
+	// 		Hearts.transform.Find("Heart0").Find("HM").gameObject.SetActive(false);
+	// 		Hearts.transform.Find("Heart0").Find("HN").gameObject.SetActive(true);
+	// 	}
+	// }
 }
