@@ -20,9 +20,9 @@ public class LivingEntity : MonoBehaviour,IDamageable
     {
         Health = startHealth;
     }
-    public virtual void TakeDamage(float danage)
+    public virtual void TakeDamage(float damage)
     {
-        Health -= danage;
+        Health -= damage;
 
         if (Health > 0 || IsDead)
         {

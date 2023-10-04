@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+
 public class Spider : LivingEntity
 {   
     [Header("AI")]
@@ -15,6 +16,7 @@ public class Spider : LivingEntity
     public float hitRate = 1.0f;
     private float _lastHit;
     private Animator _animator;
+
     protected override void Start()
     {
         base.Start();

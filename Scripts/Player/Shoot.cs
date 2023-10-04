@@ -160,7 +160,7 @@ public class Shoot : MonoBehaviour
 
 	void FireLeft()
 	{
-    	animator.SetTrigger("Shoot");
+    	//animator.SetTrigger("Shoot");
     
     	GameObject bullet = ObjectPool.Instance.GetObject(bulletPrefab);
     	bullet.transform.position = Eyes.position;
@@ -170,7 +170,7 @@ public class Shoot : MonoBehaviour
 	}
 	void FireRight()
 	{
-    	animator.SetTrigger("Shoot");
+    	//animator.SetTrigger("Shoot");
     
     	GameObject bullet = ObjectPool.Instance.GetObject(bulletPrefab);
     	bullet.transform.position = Eyes.position;
@@ -180,7 +180,7 @@ public class Shoot : MonoBehaviour
 	}
 	void FireUp()
 	{
-    	animator.SetTrigger("Shoot");
+    	//animator.SetTrigger("Shoot");
     
     	GameObject bullet = ObjectPool.Instance.GetObject(bulletPrefab);
     	bullet.transform.position = Eyes.position;
@@ -190,7 +190,7 @@ public class Shoot : MonoBehaviour
 	}
 	void FireDown()
 	{
-    	animator.SetTrigger("Shoot");
+    	//animator.SetTrigger("Shoot");
     
     	GameObject bullet = ObjectPool.Instance.GetObject(bulletPrefab);
     	bullet.transform.position = Eyes.position;

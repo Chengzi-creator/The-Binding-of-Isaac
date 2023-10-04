@@ -5,6 +5,10 @@ using UnityEngine;
 public class Player : LivingEntity
 {	
 	public GameObject Hearts;
+	private void Update()
+	{
+		Heart();
+	}
     private void Heart()
 	{
 		if(Health == 3f)
