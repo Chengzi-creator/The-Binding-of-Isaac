@@ -47,15 +47,15 @@ public class PlayerController : MonoBehaviour
         //started为按下去的那个时间点
     }
    
-    private void OnEnable()
-    {
-        inputControl.Enable();//物体存在时启用
-    }
+    // private void OnEnable()
+    // {
+    //     //inputControl.Enable();//物体存在时启用
+    // }
     
-    private void OnDisable()
-    {
-        inputControl.Disable();//物体不存在时禁用
-    }
+    // private void OnDisable()
+    // {
+    //     //inputControl.Disable();//物体不存在时禁用
+    // }
     void Start()
     {
         //currentHealth = 3;
