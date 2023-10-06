@@ -42,15 +42,13 @@ public class PlayerController : MonoBehaviour
     {   
         rb = GetComponent<Rigidbody2D>();//初始化rb，获取组件
         inputControl = new PlayerInputControls();//创建InputSystem输入的实例
-
-        //inputControls.Player.Fire.performed += Fire;//+=代表注册函数
         //started为按下去的那个时间点
     }
    
-    // private void OnEnable()
-    // {
-    //     //inputControl.Enable();//物体存在时启用
-    // }
+    private void OnEnable()
+    {
+        inputControl.Enable();//物体存在时启用
+    }
     
     // private void OnDisable()
     // {
@@ -76,13 +74,13 @@ public class PlayerController : MonoBehaviour
     //移动==========================================================
     public void Move()
     {
-        // float moveX = Input.GetAxisRaw("Horizontal"); //控制水平方向的位移，A为-1,D为1，无为0
-        // float moveY = Input.GetAxisRaw("Vertical");
-        // Vector2 position = transform.position;
-        // position.x += moveX * speed * Time.deltaTime;
-        // position.y += moveY * speed * Time.deltaTime;
-        // transform.position = position;
-        //以上都是旧的输入系统的方式了，后来更改为新的inputsystem，这段代码就废了喵
+         //float moveX = Input.GetAxisRaw("Horizontal"); //控制水平方向的位移，A为-1,D为1，无为0
+         //float moveY = Input.GetAxisRaw("Vertical");
+         //Vector2 position = transform.position;
+         //position.x += moveX * speed * Time.deltaTime;
+         //position.y += moveY * speed * Time.deltaTime;
+         //transform.position = position;
+        //以上都是旧的输入系统的方式了，后来更改为新的inputsystem，这段代码就废了喵,但新的麻烦又换回来了
         Vector2 velocity = inputDirection * speed;
         rb.velocity = velocity;//控制人物的移动
 

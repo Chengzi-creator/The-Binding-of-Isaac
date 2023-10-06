@@ -64,6 +64,12 @@ public class Bullet : MonoBehaviour
             // 在碰撞点生成爆炸特效
             GameObject exp = ObjectPool.Instance.GetObject(explosionPrefab);
             exp.transform.position = hit.point;
+            // 禁用子弹的Collider组件
+            Collider2D collider = GetComponent<Collider2D>();
+            if (collider != null)
+            {
+                collider.enabled = false;
+            }
             // 销毁子弹
             ObjectPool.Instance.PushObject(gameObject);
         }

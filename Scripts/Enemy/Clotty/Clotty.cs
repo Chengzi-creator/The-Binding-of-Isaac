@@ -9,7 +9,7 @@ public class Clotty : LivingEntity
     public AIPath aiPath;
     [Header("战斗")]
     public float damage = 1f;
-    public float hitRate = 1.5f;//攻击间隔
+    public float hitRate = 2.5f;//攻击间隔
     private float _lastHit;
     public GameObject bulletPrefab; //子弹（眼泪
     private Transform ShootPoint; 
