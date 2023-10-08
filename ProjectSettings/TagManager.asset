@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Health
+  - Key
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Groud
+  - Water
+  - UI
+  - Thing
+  - Enemy
+  - Player
+  - Bullet
+  - Room
+  - EnemyBullet
+  - Obstacles
+  - Door
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: room
+    uniqueID: 1468893513
+    locked: 0
+  - name: door
+    uniqueID: 2524246337
+    locked: 0
+  - name: thing
+    uniqueID: 1379611017
+    locked: 0
+  - name: obstacles
+    uniqueID: 1840808779
+    locked: 0
+  - name: enemy
+    uniqueID: 145986173
+    locked: 0
+  - name: player
+    uniqueID: 3417103159
+    locked: 0
+  - name: Bullet
+    uniqueID: 615957639
+    locked: 0
+  - name: enemybullet
+    uniqueID: 2763155631
+    locked: 0
